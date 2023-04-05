@@ -1,8 +1,8 @@
-# QuickMovie for Notion
+# MovieLink for Notion
 
-QuickMovie is a Chrome Extension that allows you to quickly replace movie names with their IMDb links as bookmarks in Notion using the OMDB API. 
+MovieLink is a Chrome Extension that allows you to quickly replace movie names with their IMDb links as bookmarks in Notion using the OMDB API. 
 
-![QuickMovie for Notion Demo](demo.gif)
+![MovieLink for Notion Demo](demo.gif)
 
 ## Table of Contents
 
