@@ -1,26 +1,17 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "QuickMovie for Notion",
   "version": "1.0",
-  "description": "Replace movie names in Notion with their IMDb links using the OMDB API. ",
+  "description": "Replace movie names in Notion with their IMDb links using the OMDB API.",
   "permissions": [
     "activeTab",
-    "clipboardWrite",
     "declarativeContent",
     "storage",
     "tabs",
-    "https://*.omdbapi.com/*",
-    "https://*.imdb.com/*",
-    "https://*.notion.so/*",
-    "https://notion.so/*",
-    "https://*.notion.site/*",
-    "https://notion.site/*",
-    "https://*.notion-cdn.com/*",
-    "https://*.notion.com/*",
-    "https://notion.com/*",
-    "http://localhost/*"
+    "clipboardWrite",
+    "clipboardRead"
   ],
-  "browser_action": {
+  "action": {
     "default_popup": "popup.html",
     "default_icon": {
       "16": "icon16.png",
@@ -37,7 +28,6 @@
       "description": "Replace selected movie name with IMDb link"
     }
   },
-
   "icons": {
     "16": "icon16.png",
     "48": "icon48.png",
@@ -50,7 +40,6 @@
     }
   ],
   "background": {
-    "scripts": ["background.js"],
-    "persistent": false
+    "service_worker": "background.js"
   }
 }

@@ -12,15 +12,18 @@ function replaceMovieName() {
     const selectedText = getTextFromNotionSelection(selection) || selection.toString();
   
     if (selectedText) {
+      // Delete the selected text
+      const range = selection.getRangeAt(0);
+      range.deleteContents();
+  
       fetch(`https://www.omdbapi.com/?apikey=${omdbApiKey}&t=${encodeURIComponent(selectedText)}&type=movie`)
         .then((response) => response.json())
         .then((data) => {
           if (data.Response === 'True' && data.imdbID) {
             const imdbLink = `https://www.imdb.com/title/${data.imdbID}/`;
-              insertImdbLink(imdbLink, selection);
-              //sleep for 100ms
-                setTimeout(function(){}, 100);
-            //alert('IMDb link inserted.');
+              insertImdbLink(imdbLink);
+              setTimeout(function(){}, 100);
+            //alert('IMDb link copied to clipboard.');
           } else {
             alert('Movie not found');
           }
@@ -31,15 +34,16 @@ function replaceMovieName() {
     }
   }
   
-  function insertImdbLink(imdbLink, selection) {
-    const linkElement = document.createElement('a');
-    linkElement.href = imdbLink;
-    linkElement.target = '_blank';
-    linkElement.textContent = imdbLink;
-    const range = selection.getRangeAt(0);
-    range.deleteContents();
-    range.insertNode(linkElement);
+  
+  function insertImdbLink(imdbLink) {
+    // Place the IMDb link in the clipboard
+    navigator.clipboard.writeText(imdbLink).then(() => {
+      console.log("IMDb link copied to clipboard:", imdbLink);
+    }).catch((error) => {
+      console.error("Error copying IMDb link to clipboard:", error);
+    });
   }
+  
   
   function getTextFromNotionSelection(selection) {
     if (selection.anchorNode && selection.focusNode) {
