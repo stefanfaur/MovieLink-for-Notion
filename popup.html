@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style>
-      button {
-        width: 100%;
-        padding: 10px;
-        font-size: 1em;
-        cursor: pointer;
-      }
-    </style>
+    <meta charset="UTF-8" />
+    <title>QuickMovie</title>
+    <link rel="stylesheet" type="text/css" href="popup.css" />
   </head>
   <body>
-    <button id="replaceButton">Replace Movie Name</button>
+    <div class="popup-container">
+      <div class="popup">
+        <h2>QuickMovie</h2>
+        <p>Select a movie title to get its IMDb link:</p>
+        <button class="btn" id="replaceButton">Replace</button>
+      </div>
+    </div>
+
     <script src="popup.js"></script>
   </body>
 </html>

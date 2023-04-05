@@ -6,6 +6,14 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   }
 });
 
+  
+  chrome.commands.onCommand.addListener((command) => {
+    if (command === 'replace-movie-name') {
+      replaceMovieName();
+    }
+  });
+  
+
 function replaceMovieName() {
     const selection = window.getSelection();
     const selectedText = getTextFromNotionSelection(selection) || selection.toString();

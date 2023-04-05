@@ -1,34 +1,55 @@
 {
-    "manifest_version": 2,
-    "name": "QuickMovie for Notion",
-    "version": "1.0",
-    "description": "Replace movie names in Notion with their IMDb links using the OMDB API. ",
-    "permissions": ["activeTab", "contextMenus", "storage", "http://*/*", "https://*/*"],
-    "browser_action": {
-      "default_popup": "popup.html",
-      "default_icon": {
-        "16": "icon16.png",
-        "48": "icon48.png",
-        "128": "icon128.png"
-      }
-    },
-    "commands": {
-      "_execute_browser_action": {
-        "suggested_key": {
-          "default": "Ctrl+Shift+F"
-        }
-      }
-    },
-    "icons": {
+  "manifest_version": 2,
+  "name": "QuickMovie for Notion",
+  "version": "1.0",
+  "description": "Replace movie names in Notion with their IMDb links using the OMDB API. ",
+  "permissions": [
+    "activeTab",
+    "clipboardWrite",
+    "declarativeContent",
+    "storage",
+    "tabs",
+    "webNavigation",
+    "webRequest",
+    "webRequestBlocking",
+    "https://*.omdbapi.com/*",
+    "https://*.imdb.com/*",
+    "https://*.notion.so/*",
+    "https://notion.so/*",
+    "https://*.notion.site/*",
+    "https://notion.site/*",
+    "https://*.notion-cdn.com/*",
+    "https://*.notion.com/*",
+    "https://notion.com/*",
+    "http://localhost/*"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
       "16": "icon16.png",
       "48": "icon48.png",
       "128": "icon128.png"
-    },
-    "content_scripts": [
-      {
-        "matches": ["http://*/*", "https://*/*"],
-        "js": ["content.js"]
-      }
-    ]
-  }
-  
+    }
+  },
+  "commands": {
+    "replace-movie-name": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+R",
+        "mac": "MacCtrl+Shift+R"
+      },
+      "description": "Replace selected movie name with IMDb link"
+    }
+  },
+
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
