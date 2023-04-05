@@ -24,8 +24,10 @@ function replaceMovieName() {
         .then((data) => {
           if (data.Response === 'True' && data.imdbID) {
             const imdbLink = `https://www.imdb.com/title/${data.imdbID}/`;
-            insertImdbLink(imdbLink, selection);
-            alert('IMDb link inserted.');
+              insertImdbLink(imdbLink, selection);
+              //sleep for 100ms
+                setTimeout(function(){}, 100);
+            //alert('IMDb link inserted.');
           } else {
             alert('Movie not found');
           }
