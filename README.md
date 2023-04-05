@@ -26,7 +26,7 @@ MovieLink is a Chrome Extension that allows you to quickly replace movie names w
 5. The QuickMovie extension should now be installed and visible in your extensions list.
 
 ## Usage
-
+*if the extension does not work, it might be because the OMDB API key has expired. You can change it in content.js. An update to this system is coming. OMDb API Keys are free for 1000 uses/day.*
 1. Open Notion in your Chrome browser and type the name of a movie.
 2. Select the movie name with your cursor.
 3. Press `Ctrl+Shift+R` to delete the movie name and copy the IMDb link to your clipboard.
