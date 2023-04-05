@@ -5,13 +5,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     replaceMovieName();
   }
 });
-
-  
-  chrome.commands.onCommand.addListener((command) => {
-    if (command === 'replace-movie-name') {
-      replaceMovieName();
-    }
-  });
   
 
 function replaceMovieName() {
