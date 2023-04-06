@@ -2,14 +2,10 @@
   "manifest_version": 3,
   "name": "MovieLink for Notion",
   "version": "1.0",
-  "description": "Replace movie names in Notion with their IMDb links using the OMDB API.",
+  "description": "Replace movie names in Notion with their IMDb links for quick bookmarks.",
   "permissions": [
     "activeTab",
-    "declarativeContent",
-    "storage",
-    "tabs",
-    "clipboardWrite",
-    "clipboardRead"
+    "clipboardWrite"
   ],
   "action": {
     "default_popup": "popup.html",
